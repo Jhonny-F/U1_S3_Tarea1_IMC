@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Mulegh';
+    src: url('assets/fonts/mulegh.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Amoun';
+    src: url('assets/fonts/amoun.ttf') format('truetype');
+}

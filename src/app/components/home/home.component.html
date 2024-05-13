@@ -1,0 +1,58 @@
+<div class="w-full h-screen">
+    <span class="block text-center text-4xl font-mulegh pt-3">Grupo 11</span>
+    <div class="border-b-[1px] border-stone-600 w-64 mx-auto">
+        <span class="block text-center text-sm font-amoun">Desarrollo de Aplicaciones Web Avanzado</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 mt-4">
+        <div class="w-[300px] h-50 mx-auto">
+            <div class="p-5 rounded-md text-black bg-white shadow-md">
+                <div class="text-3xl font-mulegh mb-2 text-slate-800 text-center">
+                    Calcula tu <span class="text-blue-500">IMC</span>
+                </div>
+                <div class="text-xs font-amoun mb-4 text-center text-slate-800">Todos los datos son obligatorios</div>
+                <form class="flex flex-col gap-3" [formGroup]="form" (ngSubmit)="calcular()">
+                    <div>
+                        <label for="imagen" class="text-gray-600 cursor-text text-sm font-amoun">Imagen</label>
+                        <input type="file" id="imagen" class="rounded border border-blue-200 text-sm w-full font-amoun" autocomplete="off" formControlName="imagen">
+                    </div>
+                    <div>
+                        <label for="nombre" class="text-gray-600 cursor-text text-sm font-amoun">Nombre</label>
+                        <input type="text" id="nombre"
+                            class="rounded border border-blue-200 text-sm w-full font-amoun h-8 p-[10px]  outline-none" autocomplete="off" formControlName="nombre">
+                    </div>
+                    <div>
+                        <label for="apellido" class="text-gray-600 cursor-text text-sm font-amoun">Apellido</label>
+                        <input type="text" id="apellido"
+                            class="rounded border border-blue-200 text-sm w-full font-amoun h-8 p-[10px]  outline-none" autocomplete="off" formControlName="apellido">
+                    </div>
+                    <div>
+                        <label for="peso" class="text-gray-600 cursor-text text-sm font-amoun">Peso</label>
+                        <input type="number" id="peso"
+                            class="rounded border border-blue-200 text-sm w-full font-amoun h-8 p-[10px]  outline-none" autocomplete="off" formControlName="peso">
+                    </div>
+                    <div>
+                        <label for="altura" class="text-gray-600 cursor-text text-sm font-amoun">Altura</label>
+                        <input type="number" id="altura"
+                            class="rounded border border-blue-200 text-sm w-full font-amoun h-8 p-[10px]  outline-none" autocomplete="off" formControlName="altura">
+                    </div>
+                    <button type="submit"
+                        class="bg-blue-500 w-full py-2 mt-5 rounded text-slate-50 font-mulegh">Calcular</button>
+                </form>
+            </div>
+        </div>
+        @if (usuario) {
+            <div class="w-50 h-50 flex justify-center items-center">
+                <div class="w-72 h-40 flex flex-col justify-center gap-2 bg-neutral-50 rounded-lg shadow p-2">
+                    <div class="flex gap-2">
+                        <img src="assets/image/{{usuario.imagen}}" alt="Imagen de usuario" class="bg-neutral-500 w-24 h-24 shrink-0 rounded-lg object-cover" />
+                        <div class="flex flex-col">
+                            <span class="font-bold text-neutral-700 font-mulegh texl">Resultados</span>
+                            <p class="line-clamp-3 text-sm capitalize">{{usuario.informe}}</p>
+                        </div>
+                    </div>
+                    <button (click)="limpiar()" class="hover:bg-blue-500 bg-blue-400 font-amoun text-slate-50 rounded p-2">Limpiar</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
